@@ -21,7 +21,9 @@
             <img [src]="computer.image" [alt]="computer.model">
           </div>
           <div class="card-content">
-              <p>{{computer.brand}}, {{computer.model}}</p>
+              <p>{{computer.brand}}-{{computer.model}} {{computer.screenSize}}" {{computer.screenType}}-RAM{{computer.ram}}GB-
+                {{computer.processor}}-{{computer.storage}}
+              </p>
             <p><b>Precio: </b>{{computer.price | currency}}</p>
           </div>
           <div class="card-action">
