@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductsService } from './products.service';
 
 @Component({
   selector: 'iso-store',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
+  computers$: Observable<any[]>;
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
-  ngOnInit() {
+  ngOnInit():void  {
+    this.computers$ = this.productsService.getComputers();
   }
 
 }

@@ -7,9 +7,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable()
 export class ProductsService {
+  
   constructor(private db: AngularFirestore){}
   
-  getProducts(): any{
+  getComputers(){
     return this.db.collection('computers').valueChanges();
   }
 }
