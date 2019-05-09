@@ -3,30 +3,13 @@
     <div class="nav-wrapper">
       <div class="container">
         <ul id="menu">
-          <li><a>Inicio</a></li>
-          <li><a>Computadoras</a></li>
-          <li><a>Accesorios</a></li>
-          <li><a>Ayuda</a></li>
+          <li><a routerLink="/store/home">Inicio</a></li>
+          <li><a routerLink="/store/computers">Computadoras</a></li>
+          <li><a routerLink="/store/accessories">Accesorios</a></li>
+          <li><a routerLink="/store/help">Ayuda</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </div>
-<div class="container">
-  <div class="row">
-    <div *ngFor="let computer of computers$ | async" class="col s12 m3">
-      <div class="card">
-        <div class="card-image">
-          <img [src]="computer.image" [alt]="computer.model">
-        </div>
-        <div class="card-content">
-            <p>{{computer.brand}}, {{computer.model}}</p>
-          <p><b>Precio: </b>{{computer.price | currency}}</p>
-        </div>
-        <div class="card-action">
-          <a>Detalles</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+

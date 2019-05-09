@@ -12,7 +12,7 @@ export class StoreComponent implements OnInit {
 
   constructor(private productsService: ProductsService) { }
 
-  ngOnInit():void  {
+  ngOnInit(): void  {
     this.computers$ = this.productsService.getComputers();
   }
 
