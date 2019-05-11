@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'iso-login',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  administrators$: Observable<any[]>;
+  constructor(private loginService: LoginService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void  {
+    this.administrators$ = this.loginService.getAdministrators();
   }
 
 }

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="column">
     <div *ngFor="let computer of computers$ | async" class="col s12 m3">
-      <div class="card horizontal">
+      <div class="card horizontal hoverable">
         <div class="card-image">
           <img [src]="computer.image" [alt]="computer.model">
         </div>
@@ -13,8 +13,8 @@
           <p><b>Processor: </b>{{computer.processor }}</p>
           <p><b>Storage: </b>{{computer.storage }}</p>
           <p><b>RAM: </b>{{computer.ram }} GB</p>
-          <p><b>Price: </b>{{computer.price }} $</p>
-          <p><b>Stars: </b>{{computer.stars }} $</p>
+          <p><b>Price: </b>{{computer.price }}$</p>
+          <p><b>Stars: </b>{{computer.stars }}</p>
           <p><b>Stock: </b>{{computer.stock }} units</p>
         </div>
         <div class="card-action">
