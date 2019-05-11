@@ -6,7 +6,7 @@ import { AngularFirestoreModule} from '@angular/fire/firestore'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
