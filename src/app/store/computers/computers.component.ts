@@ -15,4 +15,8 @@ export class ComputersComponent implements OnInit {
     this.computers$ = this.computersService.getComputers();
   }
 
+  pruebaClickCompra(computadora){
+    this.computersService.addRegistroDeCompra(computadora);
+  }
+
 }
