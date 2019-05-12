@@ -8,11 +8,19 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   administrators$: Observable<any[]>;
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void  {
     this.administrators$ = this.loginService.getAdministrators();
+    console.log(this.administrators$);  
+  }
+
+  login() {
+    console.log(this.administrators$);    
+
   }
 
 }
