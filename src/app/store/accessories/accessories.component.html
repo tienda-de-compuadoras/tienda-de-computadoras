@@ -1,1 +1,34 @@
 <iso-store></iso-store>
+<div class="container">
+  <div class="column">
+    <div *ngFor="let accessory of accessories$ | async" class="col s12 m3">
+      <div class="card horizontal hoverable">
+        <div class="card-image">
+          <img [src]="accessory.image" [alt]="accessory.productName">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{accessory.brand}}, {{accessory.model}}
+              <i class="material-icons right">more_vert</i>
+          </span>
+          <p><b>Name: </b>{{accessory.productName }}</p>
+          <p><b>Price: </b>{{accessory.price}}$</p>
+          <p><b>Stars: </b>{{accessory.stars}}</p>
+          <p><b>Stock: </b>{{accessory.stock}} units</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Buy</a>
+          <a href="#">Reviews</a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
+          <p><b>Brand: </b>{{accessory.brand }}</p>
+          <p><b>Model: </b>{{accessory.model }}</p>
+          <p><b>Color: </b>{{accessory.color }}</p>
+          <p><b>Weight: </b>{{accessory.productWeight }} ounces</p>
+          <p><b>Wireless: </b>{{accessory.wireless}}</p>
+          <p><b>Price: </b>{{accessory.price}} $</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
