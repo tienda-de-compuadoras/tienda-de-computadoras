@@ -9,7 +9,7 @@ import {HelpComponent} from './help/help.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'computers',
     pathMatch: 'full',
     component: StoreComponent
   },

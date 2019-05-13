@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'iso-login',
@@ -9,18 +10,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  administrators$: Observable<any[]>;
+  constructor(private router: Router) { }
 
-  constructor(private loginService: LoginService) { }
-
-  ngOnInit(): void  {
-    this.administrators$ = this.loginService.getAdministrators();
-    console.log(this.administrators$);  
-  }
-
-  login() {
-    console.log(this.administrators$);    
-
-  }
-
+  ngOnInit(){}
 }
