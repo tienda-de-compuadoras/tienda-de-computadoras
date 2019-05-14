@@ -7,7 +7,7 @@
           <img [src]="computer.image" [alt]="computer.model">
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{computer.brand}}, {{computer.model}}
+          <span class="card-title activator grey-text text-darken-4"><b>{{computer.brand}}, {{computer.model}}</b>
               <i class="material-icons right">more_vert</i>
           </span>
           <p><b>PROCESADOR: </b>{{computer.processor }}</p>
@@ -18,11 +18,12 @@
           <p><b>CANTIDAD: </b>{{computer.stock }} unidades</p>
         </div>
         <div class="card-action">
-          <a href="#">COMPRAR</a>
-          <a href="#">ANADIR A CARRITO</a>
+          <p><a href="#">COMPRAR</a></p>
+          <p>
+            <a href="#">ANADIR A CARRITO</a></p>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">DETALLES<i class="material-icons right">close</i></span>
+          <span class="card-title grey-text text-darken-4"><b>DETALLES</b><i class="material-icons right">close</i></span>
           <p><b>PRECIO: </b>{{computer.price}} $</p>
           <p><b>MARCA: </b>{{computer.brand }}</p>
           <p><b>MODELO: </b>{{computer.model }}</p>
