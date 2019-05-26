@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, createPlatformFactory } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'iso-login',
@@ -10,23 +10,34 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  email: string;
+  password: string;  
   loginForm: FormGroup;
-  submitted = false;
+  loginFailed = false;
+  registerFailed = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+    this.createForm()
+   }
 
   ngOnInit(){
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
-  });
+    this.authService.resetLoginRegisterStatus();
+    this.authService.getLoginStatus().subscribe(loginStatus => {
+      this.loginFailed = loginStatus;
+    });
+    this.authService.getRegisterStatus().subscribe(registerStatus => {
+      this.registerFailed = registerStatus;
+    });
   }
 
-  get f() { return this.loginForm.controls; }
+  createForm() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  onSubmit(){
-    this.submitted = true;
-    console.log(this.loginForm.get('email'));
-    console.log(this.loginForm.get('password'));
+  login() {
+    this.authService.logIn(this.email, this.password);
   }
 }
