@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductsService } from './products.service';
+import { ComputersService } from '../shared/computers.service';
 
 @Component({
   selector: 'iso-store',
@@ -10,10 +10,10 @@ import { ProductsService } from './products.service';
 export class StoreComponent implements OnInit {
   computers$: Observable<any[]>;
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private computersService: ComputersService) { }
 
   ngOnInit(): void  {
-    this.computers$ = this.productsService.getComputers();
+    this.computers$ = this.computersService.getComputers();
   }
 
 }

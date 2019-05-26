@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AccessoriesService } from './accessories.service';
-
+import { AccessoriesService } from 'src/app/shared/accessories.service';
 @Component({
   selector: 'iso-accessories',
   templateUrl: './accessories.component.html',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {ComputersService} from './computers.service';
+import { ComputersService } from 'src/app/shared/computers.service';
 
 @Component({
   selector: 'iso-computers',
