@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'iso-login',
@@ -8,20 +10,23 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
+  loginForm: FormGroup;
+  submitted = false;
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
 
-  ngOnInit(){}
-
-  login() {
-    console.log("click")
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';
+  ngOnInit(){
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+  });
   }
 
-  logout() {
-    this.authService.logout();
+  get f() { return this.loginForm.controls; }
+
+  onSubmit(){
+    this.submitted = true;
+    console.log(this.loginForm.get('email'));
+    console.log(this.loginForm.get('password'));
   }
 }

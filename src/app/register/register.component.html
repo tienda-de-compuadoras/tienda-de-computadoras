@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <h5 class="black-text col s6 offset-s4">Registrar Usuario</h5>
-      <form class="col s10 offset-s1 m6 offset-m3 l4 offset-l4"  novalidate>
+      <form #registerForm="ngForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4"  novalidate>
           <div class="row">
             <div class="input-field col s12">
                 <input id="name" type="text" name="name" required>
@@ -30,7 +30,8 @@
           </div>
           <div class="row">
             <div class="col s12">
-              <button class="waves-effect black btn-small">Registrar</button>
+              <button class="waves-effect waves-light btn right" [disabled]="registerForm.invalid"
+               (click)="auth.register(email, password)">Registrar usuario</button>
             </div>
           </div>
           <div class="row center">

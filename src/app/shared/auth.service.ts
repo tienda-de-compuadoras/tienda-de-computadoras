@@ -1,47 +1,69 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { first, take, switchMap } from 'rxjs/operators';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: Observable<firebase.User>;
-  logged: boolean;
+  displayError = false;
 
-  constructor(private firebaseAuth: AngularFireAuth) { 
-    this.user = firebaseAuth.authState;
-  }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private afAuth: AngularFireAuth
+  ) {}
 
-  signup(email: string, password: string) {
-    this.firebaseAuth
-      .auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Success!', value);
+  getAuthUser(): Observable<any> {
+    return this.getAuthState().pipe(
+      switchMap(user => {
+        if (user) {
+          return this.userService.getUser(user.uid);
+        }
+        return of(null);
       })
-      .catch(err => {
-        console.log('Something went wrong:',err.message);
-      });    
+    );
   }
 
-  login(email: string, password: string) {
-    this.firebaseAuth
-      .auth
+  login(email: string, password: string): void {
+    this.displayError = false;
+    this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Nice, it worked!');
-        this.logged = true;
+      .then(credential => {
+        this.userService
+          .createUser(credential.user)
+          .pipe(first())
+          .subscribe(() => {
+            this.router.navigate(['store/computers']);
+          });
       })
       .catch(err => {
-        console.log('Something went wrong:',err.message);
-        this.logged = false;
+        this.displayError = true;
+        console.error(err);
       });
   }
 
-  logout() {
-    this.firebaseAuth
-      .auth
-      .signOut();
+  register(email: string, password: string): void {
+    this.afAuth.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        this.login(email, password);
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  }
+
+  logout(): void {
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/login']);
+    });
+  }
+
+  private getAuthState(): Observable<any> {
+    return this.afAuth.authState.pipe(take(1));
   }
 }
