@@ -5,7 +5,6 @@
         <div class="container">
           <a data-target="mobile-menu" class="sidenav-trigger">
             <i class="material-icons">menu</i>
-            <p *ngIf="authService.user">Welcome {{authService.user.email}}</p>
           </a>
           <ul class="right hide-on-med-and-down">
             <li><a routerLink="/store/home">Inicio</a></li>
@@ -13,7 +12,7 @@
             <li><a routerLink="/store/accessories">Accesorios</a></li>
             <li><a routerLink="/store/help">Ayuda</a></li>
             <li *ngIf="!authService.user">
-              <a routerLink="login" routerLinkActive="active">Iniciar Sesion</a>
+              <a routerLink="login" routerLinkActive="active">Iniciar Sesion/Registrarse</a>
             </li>
             <li *ngIf="authService.user">
               <a (click)="logOut()">Log out</a>

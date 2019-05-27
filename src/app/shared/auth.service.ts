@@ -25,7 +25,7 @@ export class AuthService {user: User;
   logIn(email: string, password: string) {
     this.angularFire.auth.signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.router.navigate(['/books']);
+        this.router.navigate(['store/computers']);
       })
       .catch(err => {
         this.loginFailed.next(true);
@@ -35,7 +35,7 @@ export class AuthService {user: User;
   signUp(email: string, password: string) {
     this.angularFire.auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
-        this.router.navigate(['/books']);
+        this.router.navigate(['login']);
       })
       .catch(err => {
         this.registerFailed.next(true);
@@ -47,7 +47,7 @@ export class AuthService {user: User;
     this.angularFire.auth.signOut()
       .then(() => {
         this.userLoggedOut.next(true);
-        this.router.navigate(['/books']);
+        this.router.navigate(['store/computers']);
       });
   }
 

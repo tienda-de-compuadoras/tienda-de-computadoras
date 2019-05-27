@@ -13,6 +13,9 @@
             <div *ngIf="loginForm.controls['email'].errors.required">
               Email is required.
             </div>
+            <div *ngIf="loginForm.controls['email'].errors.email">
+              Email must be a valid email address
+            </div>
           </div>
           <div class="input-field col s12 form-group">
             <input name="password" class="form-control" formControlName="password" [(ngModel)]="password" type="password" required>
@@ -23,6 +26,9 @@
             class="alert alert-danger">
             <div *ngIf="loginForm.controls['password'].errors.required">
               Password is required.
+            </div>
+            <div *ngIf="loginForm.controls['password'].errors.minlength">
+              Password must be at least 8 characters.
             </div>
           </div>
         </div>
