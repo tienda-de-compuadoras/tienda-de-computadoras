@@ -14,6 +14,7 @@
             <li *ngIf="!authService.user">
               <a routerLink="login" routerLinkActive="active">Iniciar Sesion/Registrarse</a>
             </li>
+            <li *ngIf="authService.user">WELCOME {{authService.user.email}}</li>
             <li *ngIf="authService.user">
               <a (click)="logOut()">Log out</a>
             </li>
