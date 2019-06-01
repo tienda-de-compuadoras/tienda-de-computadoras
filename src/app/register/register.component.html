@@ -1,15 +1,35 @@
 <div class="container">
   <div class="row">
       <h5 class="black-text col s6 offset-s4">Registrar Usuario</h5>
-      <form #registerForm="ngForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4"  novalidate>
+      <form [formGroup]="registerForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4"  novalidate>
           <div class="row">
             <div class="input-field col s12">
-                <input id="name" type="text" name="name" required>
-                <label for="name">Nombres</label>
+                <input id="name" type="text" name="name" class="form-control" formControlName="name" [(ngModel)]="name" required>
+                <label for="name">Nombre</label>
+            </div>
+            <div
+              *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['name'].errors.required">
+                Nombre es requerido
+              </div>
+              <div *ngIf="loginForm.controls['name'].errors.maxlength">
+                Nombre debe ser menos de 15 caracteres
+              </div>
             </div>
             <div class="input-field col s12">
-                <input id="last_name" type="text" name="last_name" required>
+                <input id="last_name" type="text" name="lastName" class="form-control" formControlName="lastName" [(ngModel)]="lastName" required>
                 <label for="last_name">Apellidos</label>
+            </div>
+            <div
+              *ngIf="loginForm.controls['lastName'].invalid && (loginForm.controls['lastName'].dirty || loginForm.controls['lastName'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['lastName'].errors.required">
+                Apellidos son requeridos
+              </div>
+              <div *ngIf="loginForm.controls['lastName'].errors.maxlength">
+                Apellidos debe ser menos de 20 caracteres
+              </div>
             </div>
             <div class="input-field col s12">
                 <select class="browser-default">
@@ -37,7 +57,6 @@
           <div class="row center">
             <a routerLink="/login">Iniciar Sesión</a>
           </div>
-        </form>
+       </form>
   </div>
-  
 </div>
