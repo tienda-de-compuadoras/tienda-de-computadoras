@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../shared/user.service';
+import { User } from './user';
 
 @Component({
   selector: 'iso-register',
@@ -10,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  names: string;
-  lastNames: string;
+  name: string;
+  lastName: string;
   city: string;
   email: string;
   password: string;
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private router: Router,
+              private authService: AuthService, private userService: UserService) {
     this.createForm();
   }
 
@@ -31,6 +34,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.userService.addUser(new User(this.name, this.lastName, this.city,
+                                      this.email, this.password))
     this.authService.register(this.email, this.password);
   }
 }
