@@ -14,6 +14,10 @@ import { AccessoriesService } from './shared/accessories.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
+import { StoreModule } from './store/store.module';
+import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,8 +29,11 @@ import { CommonModule } from '@angular/common';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
-    LayoutModule],
-  providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService],
+    LayoutModule,
+    LoginModule,
+    RegisterModule
+  ],
+  providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

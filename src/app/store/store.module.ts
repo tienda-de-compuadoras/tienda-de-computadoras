@@ -19,6 +19,7 @@ import { AccessoriesService } from '../shared/accessories.service';
     HttpClientModule,
     StoreRoutingModule
   ],
+  exports: [HomeComponent, ComputersComponent, AccessoriesComponent, HelpComponent],
   providers: [AccessoriesService, AuthService, ComputersService]
 })
 export class StoreModule { }

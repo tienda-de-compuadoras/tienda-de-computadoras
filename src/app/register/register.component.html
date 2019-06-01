@@ -8,12 +8,12 @@
                 <label for="name">Nombre</label>
             </div>
             <div
-              *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)"
+              *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
               class="alert alert-danger">
-              <div *ngIf="loginForm.controls['name'].errors.required">
+              <div *ngIf="registerForm.controls['name'].errors.required">
                 Nombre es requerido
               </div>
-              <div *ngIf="loginForm.controls['name'].errors.maxlength">
+              <div *ngIf="registerForm.controls['name'].errors.maxlength">
                 Nombre debe ser menos de 15 caracteres
               </div>
             </div>
@@ -22,17 +22,18 @@
                 <label for="last_name">Apellidos</label>
             </div>
             <div
-              *ngIf="loginForm.controls['lastName'].invalid && (loginForm.controls['lastName'].dirty || loginForm.controls['lastName'].touched)"
+              *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)"
               class="alert alert-danger">
-              <div *ngIf="loginForm.controls['lastName'].errors.required">
+              <div *ngIf="registerForm.controls['lastName'].errors.required">
                 Apellidos son requeridos
               </div>
-              <div *ngIf="loginForm.controls['lastName'].errors.maxlength">
+              <div *ngIf="registerForm.controls['lastName'].errors.maxlength">
                 Apellidos debe ser menos de 20 caracteres
               </div>
             </div>
+            <label>Escoja la ciudad donde vive</label>
             <div class="input-field col s12">
-                <select class="browser-default" required>
+                <select class="browser-default"  id="city" type="text" name="city" formControlName="city" [(ngModel)]="city" required>
                   <option value="" disabled selected>Escoja la ciudad donde vive.</option>
                   <option value="1">La Paz</option>
                   <option value="2">Santa Cruz</option>
@@ -40,38 +41,38 @@
                 </select>
             </div>
             <div class="input-field col s12">
-              <input id="email" type="email" name="email"required>
+              <input id="email" type="email" name="email" class="form-control" formControlName="email" [(ngModel)]="email" required>
               <label for="email">Correo</label>
             </div>
             <div
-            *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="loginForm.controls['email'].errors.required">
-              Correo es requerido.
+              *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="registerForm.controls['email'].errors.required">
+                Correo es requerido.
+              </div>
+              <div *ngIf="registerForm.controls['email'].errors.email">
+                Debe ser un formato valido de correo.
+              </div>
             </div>
-            <div *ngIf="loginForm.controls['email'].errors.email">
-              Debe ser un formato valido de correo.
-            </div>
-          </div>
             <div class="input-field col s12">
-              <input id="password" type="password" name="password" required>
+              <input id="password" type="password" name="password" class="form-control" formControlName="password" [(ngModel)]="password" required>
               <label for="password">Contrasena</label>
             </div>
             <div
-            *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="loginForm.controls['password'].errors.required">
-              Contrasena es requerida.
+              *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="registerForm.controls['password'].errors.required">
+                Contrasena es requerida.
+              </div>
+              <div *ngIf="registerForm.controls['password'].errors.minlength">
+                Contrasena debe ser por lo menos de 8 caracteres
+              </div>
             </div>
-            <div *ngIf="loginForm.controls['password'].errors.minlength">
-              Contrasena debe ser por lo menos de 8 caracteres
-            </div>
-          </div>
           </div>
           <div class="row">
             <div class="col s12">
               <button type="button" class="waves-effect waves-light btn right" 
-              [disabled]="loginForm.pristine || loginForm.invalid" (click)="register()">Registrar usuario</button>
+              [disabled]="registerForm.pristine || registerForm.invalid" (click)="register()">Registrar usuario</button>
             </div>
           </div>
           <div class="row center">

@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [LoginComponent]
 })
 export class LoginModule implements OnInit{
   email: string;
