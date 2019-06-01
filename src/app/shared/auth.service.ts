@@ -32,7 +32,7 @@ export class AuthService {user: User;
       });
   }
 
-  signUp(email: string, password: string) {
+  register(email: string, password: string) {
     this.angularFire.auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         this.router.navigate(['login']);

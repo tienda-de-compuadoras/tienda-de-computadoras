@@ -1,7 +1,6 @@
-import { Component, OnInit, createPlatformFactory } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
   registerFailed = false;
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
-    this.createForm()
+    this.createForm();
    }
 
   ngOnInit(){
