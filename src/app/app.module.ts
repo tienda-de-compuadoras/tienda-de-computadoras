@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from './store/store.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
-import { RegisterComponent } from './register/register.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent],

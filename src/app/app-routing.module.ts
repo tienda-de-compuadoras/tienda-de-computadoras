@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './register/register.module#RegisterModule'
   },
   {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
     path: '',
     redirectTo: 'store/computers',
     pathMatch: 'full',
