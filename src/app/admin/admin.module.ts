@@ -6,9 +6,10 @@ import { AdminComputersComponent } from './admin-computers/admin-computers.compo
 import { AdminAccesoriesComponent } from './admin-accesories/admin-accesories.component';
 import { AdminComponent } from './admin.component';
 import { ComputerFormComponent } from './computer-form/computer-form.component';
+import { AccessoryFormComponent } from './accessory-form/accessory-form.component';
 
 @NgModule({
-  declarations: [AdminComputersComponent, AdminAccesoriesComponent, AdminComponent, ComputerFormComponent],
+  declarations: [AdminComputersComponent, AdminAccesoriesComponent, AdminComponent, ComputerFormComponent, AccessoryFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
