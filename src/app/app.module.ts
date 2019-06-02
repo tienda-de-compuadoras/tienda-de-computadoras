@@ -14,9 +14,6 @@ import { AccessoriesService } from './shared/accessories.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
-import { LoginModule } from './login/login.module';
-import { RegisterModule } from './register/register.module';
-import { StoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [AppComponent],
