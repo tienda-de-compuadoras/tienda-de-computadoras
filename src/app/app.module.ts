@@ -14,7 +14,7 @@ import { AccessoriesService } from './shared/accessories.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,8 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
-    LayoutModule,
-    BrowserAnimationsModule,
+    LayoutModule
   ],
   providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService, UserService],
   bootstrap: [AppComponent]
