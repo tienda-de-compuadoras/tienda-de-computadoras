@@ -10,11 +10,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>HP</td>
-                        <td>Spectre</td>
-                        <td>10</td>
-                        <td>1100$</td>
+                    <tr *ngFor="let computer of computers$ | async">
+                        <td>{{computer.brand}}</td>
+                        <td>{{computer.model}}</td>
+                        <td>{{computer.stock}}</td>
+                        <td>{{computer.price}}</td>
                         <td><a>Editar</a></td>
                         <td><a>Editar</a></td>
                     </tr>

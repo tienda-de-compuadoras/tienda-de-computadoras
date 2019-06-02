@@ -9,11 +9,11 @@ import { AccessoriesService } from 'src/app/shared/accessories.service';
 })
 export class AdminAccesoriesComponent implements OnInit {
   columns = ["Marca", "Modelo", "Nombre Producto","Cantidad", "Precio", "Editar", "Eliminar"];
-  accesories$: Observable<any[]>;
+  accessories$: Observable<any[]>;
   constructor(private accesoriesService: AccessoriesService) { }
 
   ngOnInit(): void  {
-    this.accesories$ = this.accesoriesService.getAccessories();
+    this.accessories$ = this.accesoriesService.getAccessories();
   }
 
 }
