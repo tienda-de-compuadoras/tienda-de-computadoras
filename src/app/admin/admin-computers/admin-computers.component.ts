@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ComputersService } from 'src/app/shared/computers.service';
 
 @Component({
   selector: 'iso-admin-computers',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-computers.component.css']
 })
 export class AdminComputersComponent implements OnInit {
+  columns = ["Marca", "Modelo", "Cantidad", "Precio", "Editar", "Eliminar"];
+  computers$: Observable<any[]>;
+  constructor(private computersService: ComputersService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void  {
+    this.computers$ = this.computersService.getComputers();
   }
-
 }

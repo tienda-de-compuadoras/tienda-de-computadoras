@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AccessoriesService } from 'src/app/shared/accessories.service';
 
 @Component({
   selector: 'iso-admin-accesories',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-accesories.component.css']
 })
 export class AdminAccesoriesComponent implements OnInit {
+  columns = ["Marca", "Modelo", "Nombre Producto","Cantidad", "Precio", "Editar", "Eliminar"];
+  accesories$: Observable<any[]>;
+  constructor(private accesoriesService: AccessoriesService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void  {
+    this.accesories$ = this.accesoriesService.getAccessories();
   }
 
 }

@@ -16,6 +16,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
+import { StoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,8 +29,6 @@ import { RegisterModule } from './register/register.module';
     AngularFirestoreModule,
     AppRoutingModule,
     LayoutModule,
-    LoginModule,
-    RegisterModule
   ],
   providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService, UserService],
   bootstrap: [AppComponent]
