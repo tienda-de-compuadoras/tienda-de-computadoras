@@ -11,4 +11,11 @@ export class ComputersService {
   getComputers() {
     return this.db.collection('computers').valueChanges();
   }
+
+  addComputer(computer: any) {
+    this.db.collection('computers').add(computer)
+    .then(ref => {
+      console.log('Computer Added')
+    });
+  }
 }
