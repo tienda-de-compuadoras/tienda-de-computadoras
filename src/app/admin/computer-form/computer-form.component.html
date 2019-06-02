@@ -3,39 +3,242 @@
         <h5 class="black-text col s6 offset-s4">Anadir y Editar Computadora</h5>
         <form  [formGroup]="computerForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4" novalidate>
             <div class="row">
-            <div class="input-field col s12">
-                <input id="email" name="email" class="form-control" formControlName="email" [(ngModel)]="email" type="email" required>
-                <label for="email">Correo</label>
-            </div>
-            <div
-                *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="loginForm.controls['email'].errors.required">
-                Email is required.
+                <div class="input-field col s12">
+                    <input id="brand" name="brand" class="form-control" formControlName="brand" [(ngModel)]="brand" type="text" required>
+                    <label for="brand">Marca</label>
                 </div>
-                <div *ngIf="loginForm.controls['email'].errors.email">
-                Email must be a valid email address
+                <div
+                    *ngIf="computerForm.controls['brand'].invalid && (computerForm.controls['brand'].dirty || computerForm.controls['brand'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['brand'].errors.required">
+                    Marca es Requerido
+                    </div>
                 </div>
-            </div>
-            <div class="input-field col s12 form-group">
-                <input name="password" class="form-control" formControlName="password" [(ngModel)]="password" type="password" required>
-                <label for="password">Password</label>
-            </div>
-            <div
-                *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="loginForm.controls['password'].errors.required">
-                Password is required.
+                <div class="input-field col s12 form-group">
+                    <input name="model" class="form-control" formControlName="model" [(ngModel)]="model" type="model" required>
+                    <label for="model">Modelo</label>
                 </div>
-                <div *ngIf="loginForm.controls['password'].errors.minlength">
-                Password must be at least 8 characters.
+                <div
+                    *ngIf="computerForm.controls['model'].invalid && (computerForm.controls['model'].dirty || computerForm.controls['model'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['model'].errors.required">
+                    Modelo es requerido.
+                    </div>
                 </div>
-            </div>
+                <div class="input-field col s12 form-group">
+                    <input name="processor" class="form-control" formControlName="processor" [(ngModel)]="processor" type="processor" required>
+                    <label for="processor">Procesador</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['processor'].invalid && (computerForm.controls['processor'].dirty || computerForm.controls['processor'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['processor'].errors.required">
+                    Procesador es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="storage" class="form-control" formControlName="storage" [(ngModel)]="storage" type="text" required>
+                    <label for="storage">Almacenamiento</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['storage'].invalid && (computerForm.controls['storage'].dirty || computerForm.controls['storage'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['storage'].errors.required">
+                    Almacenamiento es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="ram" class="form-control" formControlName="ram" [(ngModel)]="ram" type="text" placeholder="# GB" required>
+                    <label for="ram">Memoria RAM</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['ram'].invalid && (computerForm.controls['ram'].dirty || computerForm.controls['ram'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['ram'].errors.required">
+                    Almacenamiento es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['ram'].errors.number">
+                    Solo valores numericos.
+                    </div>
+                    <div *ngIf="computerForm.controls['ram'].errors.maxlength">
+                    Valor de dos digitos maximo (16, 64).
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="graphics" class="form-control" formControlName="graphics" [(ngModel)]="graphics" type="text" required>
+                    <label for="graphics">Graficos</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['graphics'].invalid && (computerForm.controls['graphics'].dirty || computerForm.controls['graphics'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['graphics'].errors.required">
+                    Graficos es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="image" class="form-control" formControlName="image" [(ngModel)]="image" type="text" placeholder="assets/name_image.jpg" required>
+                    <label for="image">Ruta Imagen</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['image'].invalid && (computerForm.controls['image'].dirty || computerForm.controls['image'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['image'].errors.required">
+                    Ruta imagen es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="os" class="form-control" formControlName="os" [(ngModel)]="os" type="text" required>
+                    <label for="os">Sistema Operativo</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['os'].invalid && (computerForm.controls['os'].dirty || computerForm.controls['os'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['os'].errors.required">
+                    Sistema Operativo es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="screenType" class="form-control" formControlName="screenType" [(ngModel)]="screenType" type="text" required>
+                    <label for="screenType">Tipo Pantalla</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['screenType'].invalid && (computerForm.controls['screenType'].dirty || computerForm.controls['screenType'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['screenType'].errors.required">
+                    Tipo de Pantalla es requerido.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="screenSize" class="form-control" formControlName="screenSize" [(ngModel)]="screenSize" type="number" required>
+                    <label for="screenSize">Tipo Pantalla</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['screenSize'].invalid && (computerForm.controls['screenSize'].dirty || computerForm.controls['screenSize'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['screenSize'].errors.required">
+                    tamani de Pantalla es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['screenSize'].errors.number">
+                    Tamano de Pantalla numerico con dos decimales maximo.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="touchScreen" class="form-control" formControlName="touchScreen" [(ngModel)]="touchScreen" type="text" placeholder="Si/No" required>
+                    <label for="touchScreen">Pantalla Tactil?</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['touchScreen'].invalid && (computerForm.controls['touchScreen'].dirty || computerForm.controls['touchScreen'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['touchScreen'].errors.required">
+                    Pantalla Tactil requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['screenSize'].errors.maxlength">
+                    Pantalla Tactil: Si o No.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="weight" class="form-control" formControlName="weight" [(ngModel)]="weight" type="number" placeholder="En libras" required>
+                    <label for="screenSize">Peso</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['weight'].invalid && (computerForm.controls['weight'].dirty || computerForm.controls['weight'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['weight'].errors.required">
+                    Peso es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['weight'].errors.number">
+                    Peso es numerico con dos decimales maximo.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="bluetooth" class="form-control" formControlName="bluetooth" [(ngModel)]="bluetooth" type="text" placeholder="Si/No" required>
+                    <label for="bluetooth">Bluetooth?</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['bluetooth'].invalid && (computerForm.controls['bluetooth'].dirty || computerForm.controls['bluetooth'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['bluetooth'].errors.required">
+                    Bluetooth es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['bluetooth'].errors.maxlength">
+                    Bluetooth: Si o No
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="headphoneJack" class="form-control" formControlName="headphoneJack" [(ngModel)]="headphoneJack" type="text" placeholder="Si/No" required>
+                    <label for="headphoneJack">Puerto Auriculares?</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['headphoneJack'].invalid && (computerForm.controls['headphoneJack'].dirty || computerForm.controls['headphoneJack'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['headphoneJack'].errors.required">
+                    Puerto Auriculares es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['bluetooth'].errors.maxlength">
+                    Puerto Auriculares: Si o No
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="portsTypeA" class="form-control" formControlName="portsTypeA" [(ngModel)]="portsTypeA" type="number" required>
+                    <label for="portsTypeA">Puertos Tipo A</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['portsTypeA'].invalid && (computerForm.controls['portsTypeA'].dirty || computerForm.controls['portsTypeA'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['portsTypeA'].errors.required">
+                    Puertos Tipo A es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['weight'].errors.number">
+                    Puertos Tipo A de un digito.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="portsTypeC" class="form-control" formControlName="portsTypeC" [(ngModel)]="portsTypeC" type="number" required>
+                    <label for="portsTypeC">Puertos Tipo C</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['portsTypeC'].invalid && (computerForm.controls['portsTypeC'].dirty || computerForm.controls['portsTypeC'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['portsTypeC'].errors.required">
+                    Puertos Tipo C es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['portsTypeC'].errors.number">
+                    Puertos Tipo C de un digito.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="price" class="form-control" formControlName="price" [(ngModel)]="price" type="number" required>
+                    <label for="price">Precio</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['price'].invalid && (computerForm.controls['price'].dirty || computerForm.controls['price'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['price'].errors.required">
+                    Precio es requerido.
+                    </div>
+                    <div *ngIf="computerForm.controls['price'].errors.number">
+                    Precio es numerico maximo 4 digitos y 2 decimales.
+                    </div>
+                </div>
+                <div class="input-field col s12 form-group">
+                    <input name="stock" class="form-control" formControlName="stock" [(ngModel)]="stock" type="number" required>
+                    <label for="stock">Cantidad Unidades Disponibles</label>
+                </div>
+                <div
+                    *ngIf="computerForm.controls['stock'].invalid && (computerForm.controls['stock'].dirty || computerForm.controls['stock'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="computerForm.controls['stock'].errors.required">
+                    Cantidad Disponible requerida.
+                    </div>
+                    <div *ngIf="computerForm.controls['stock'].errors.number">
+                    Cantidad Disponible maximo 2 digitos.
+                    </div>
+                </div>
             </div>
             <div class="row">
             <div class="col s12">
                 <button type="button" class="waves-effect waves-light btn right red lighten-1" 
-                [disabled]="loginForm.pristine || loginForm.invalid" (click)="login()">Iniciar Sesión</button>
+                [disabled]="computerForm.pristine || computerForm.invalid" (click)="addComputer()">Guardar Computadora</button>
             </div>
             </div>
         </form>

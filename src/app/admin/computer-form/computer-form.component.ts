@@ -39,20 +39,20 @@ export class ComputerFormComponent implements OnInit {
       model: ['', Validators.required],
       processor: ['', Validators.required],
       storage: ['', Validators.required],
-      ram: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      ram: ['', [Validators.required, Validators.number, Validators.maxLength(2)]],
       graphics: ['', Validators.required],
       image: ['', Validators.required],
       os: ['', Validators.required],
       screenType: ['', Validators.required],
-      screenSize: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      touchScreen: ['', Validators.required],
-      weight: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      bluetooth: ['', Validators.required],
-      headphoneJack: ['', Validators.required],
-      portsTypeA: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      screenSize: ['', [Validators.required, Validators.number, Validators.maxLength(5)]],
+      touchScreen: ['', [Validators.required, Validators.maxLength(2)]],
+      weight: ['', [Validators.required, Validators.number, Validators.maxLength(5)]],
+      bluetooth: ['', [Validators.required, Validators.maxLength(2)]],
+      headphoneJack: ['',[Validators.required, Validators.maxLength(2)]],
+      portsTypeA: ['', [Validators.required, Validators.number, Validators.maxLength(1)]],
       portsTypeC: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      price: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      stock: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
+      price: ['', [Validators.required, Validators.number, Validators.maxLength(7)]],
+      stock: ['', [Validators.required, Validators.number, Validators.maxLength(2)]]
     });
   }
 
