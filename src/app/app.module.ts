@@ -14,6 +14,7 @@ import { AccessoriesService } from './shared/accessories.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { CommonModule } from '@angular/common';
     AngularFirestoreModule,
     AppRoutingModule,
     LayoutModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService, UserService],
   bootstrap: [AppComponent]

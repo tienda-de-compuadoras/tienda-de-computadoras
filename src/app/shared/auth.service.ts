@@ -25,7 +25,7 @@ export class AuthService {user: User;
   logIn(email: string, password: string) {
     this.angularFire.auth.signInWithEmailAndPassword(email, password)
       .then(() => {
-        if (email=='admin@gmail.com' && password=='Admin123!') {
+        if (email==='admin@gmail.com' && password==='Admin123!') {
           this.router.navigate(['admin']);
         }else{
           this.router.navigate(['store/computers']);
