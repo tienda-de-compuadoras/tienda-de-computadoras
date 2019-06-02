@@ -11,24 +11,24 @@
             *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)"
             class="alert alert-danger">
             <div *ngIf="loginForm.controls['email'].errors.required">
-              Email is required.
+              Correo es requerido
             </div>
             <div *ngIf="loginForm.controls['email'].errors.email">
-              Email must be a valid email address
+              Debe ser un correo valido
             </div>
           </div>
           <div class="input-field col s12 form-group">
             <input name="password" class="form-control" formControlName="password" [(ngModel)]="password" type="password" required>
-            <label for="password">Password</label>
+            <label for="password">Contrasena</label>
           </div>
           <div
             *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
             class="alert alert-danger">
             <div *ngIf="loginForm.controls['password'].errors.required">
-              Password is required.
+              Contrasena es requerida
             </div>
             <div *ngIf="loginForm.controls['password'].errors.minlength">
-              Password must be at least 8 characters.
+              Contrasena debe ser al menos de 8 caracteres (Letras, Numeros).
             </div>
           </div>
         </div>
