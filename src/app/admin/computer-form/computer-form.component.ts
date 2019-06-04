@@ -29,10 +29,11 @@ export class ComputerFormComponent implements OnInit {
   price: number;
   stock: number;
 
-  constructor(private fb: FormBuilder, private computersService: ComputersService) { }
+  constructor(private fb: FormBuilder, private computersService: ComputersService) { 
+    this.createForm();
+  }
 
   ngOnInit() {
-    this.createForm();
   }
   createForm(){
     this.computerForm = this.fb.group({
@@ -40,20 +41,20 @@ export class ComputerFormComponent implements OnInit {
       model: ['', Validators.required],
       processor: ['', Validators.required],
       storage: ['', Validators.required],
-      ram: ['', [Validators.required, Validators.number, Validators.maxLength(2)]],
+      ram: ['', [Validators.required, Validators.maxLength(2)]],
       graphics: ['', Validators.required],
       image: ['', Validators.required],
       os: ['', Validators.required],
       screenType: ['', Validators.required],
-      screenSize: ['', [Validators.required, Validators.number, Validators.maxLength(5)]],
+      screenSize: ['', [Validators.required, Validators.maxLength(5)]],
       touchScreen: ['', [Validators.required, Validators.maxLength(2)]],
-      weight: ['', [Validators.required, Validators.number, Validators.maxLength(5)]],
+      weight: ['', [Validators.required, Validators.maxLength(5)]],
       bluetooth: ['', [Validators.required, Validators.maxLength(2)]],
       headphoneJack: ['',[Validators.required, Validators.maxLength(2)]],
-      portsTypeA: ['', [Validators.required, Validators.number, Validators.maxLength(1)]],
-      portsTypeC: ['', [Validators.required, Validators.number]],
-      price: ['', [Validators.required, Validators.number, Validators.maxLength(7)]],
-      stock: ['', [Validators.required, Validators.number, Validators.maxLength(2)]]
+      portsTypeA: ['', [Validators.required, Validators.maxLength(1)]],
+      portsTypeC: ['', [Validators.required, Validators.maxLength(1)]],
+      price: ['', [Validators.required, Validators.maxLength(7)]],
+      stock: ['', [Validators.required, Validators.maxLength(2)]]
     });
   }
 

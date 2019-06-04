@@ -57,7 +57,7 @@
                   <div *ngIf="accessoryForm.controls['productWeight'].errors.required">
                   Peso es requerido.
                   </div>
-                  <div *ngIf="accessoryForm.controls['productWeight'].errors.number">
+                  <div *ngIf="accessoryForm.controls['productWeight'].errors.maxlength">
                   Peso es numerico con dos decimales maximo.
                   </div>
               </div>
@@ -85,7 +85,7 @@
                   <div *ngIf="accessoryForm.controls['price'].errors.required">
                   Precio es requerido.
                   </div>
-                  <div *ngIf="accessoryForm.controls['price'].errors.number">
+                  <div *ngIf="accessoryForm.controls['price'].errors.maxlength">
                   Precio es numerico maximo 4 digitos y 2 decimales.
                   </div>
               </div>
@@ -99,7 +99,7 @@
                   <div *ngIf="accessoryForm.controls['stock'].errors.required">
                   Cantidad Disponible requerida.
                   </div>
-                  <div *ngIf="accessoryForm.controls['stock'].errors.number">
+                  <div *ngIf="accessoryForm.controls['stock'].errors.maxlength">
                   Cantidad Disponible maximo 2 digitos.
                   </div>
               </div>

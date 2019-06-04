@@ -19,10 +19,12 @@ export class AccessoryFormComponent implements OnInit {
   stars: number;
   stock: number;
   accessoryForm: FormGroup;
-  constructor(private fb: FormBuilder, private accessoryService: AccessoriesService) { }
+
+  constructor(private fb: FormBuilder, private accessoryService: AccessoriesService) { 
+    this.createForm();
+  }
 
   ngOnInit() {
-    this.createForm();
   }
   createForm(){
     this.accessoryForm = this.fb.group({
@@ -31,10 +33,10 @@ export class AccessoryFormComponent implements OnInit {
       productName: ['', Validators.required],
       color: ['', Validators.required],
       image: ['', Validators.required],
-      productWeight: ['', [Validators.required, Validators.number, Validators.maxLength(5)]],
-      wireless: ['', Validators.required],
-      price: ['', [Validators.required, Validators.number, Validators.maxLength(7)]],
-      stock: ['', [Validators.required, Validators.number, Validators.maxLength(2)]]
+      productWeight: ['', [Validators.required, Validators.maxLength(5)]],
+      wireless: ['',[Validators.required, Validators.maxLength(2)]],
+      price: ['', [Validators.required, Validators.maxLength(7)]],
+      stock: ['', [Validators.required, Validators.maxLength(2)]]
     });
   }
 
