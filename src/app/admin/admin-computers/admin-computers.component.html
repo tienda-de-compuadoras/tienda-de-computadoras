@@ -1,0 +1,26 @@
+<iso-admin></iso-admin>
+<div class="container">
+    <div class="column">
+        <h5 class="black-text col s6 offset-s4">ADMINISTRAR COMPUTADORAS</h5>
+        <button class=" waves-effect waves-light btn col s5 offset-s3 red lighten-1"  routerLink="/admin/addComputer">Anadir Computadora</button>
+        <div class="col s12">
+            <table class="striped red lighten-1">
+                <thead>
+                    <tr>
+                        <th *ngFor="let column of columns">{{column}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let computer of computers$ | async">
+                        <td>{{computer.brand}}</td>
+                        <td>{{computer.model}}</td>
+                        <td>{{computer.stock}}</td>
+                        <td>{{computer.price}}</td>
+                        <td><a>Editar</a></td>
+                        <td><a>Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

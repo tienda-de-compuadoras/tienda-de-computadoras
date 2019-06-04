@@ -1,15 +1,22 @@
 <header>
   <div class="navbar-fixed">
-    <nav>
+    <nav class="red accent-4">
       <div class="nav-wrapper">
         <div class="container">
-          <a routerLink="/">ISO</a>
           <a data-target="mobile-menu" class="sidenav-trigger">
             <i class="material-icons">menu</i>
           </a>
           <ul class="right hide-on-med-and-down">
-            <li>
-              <a routerLink="/">Tienda</a>
+            <li><a routerLink="/store/home">Inicio</a></li>
+            <li><a routerLink="/store/computers">Computadoras</a></li>
+            <li><a routerLink="/store/accessories">Accesorios</a></li>
+            <li><a routerLink="/store/help">Ayuda</a></li>
+            <li *ngIf="!authService.user">
+              <a routerLink="login" routerLinkActive="active">Iniciar Sesion/Registrarse</a>
+            </li>
+            <li *ngIf="authService.user">WELCOME {{authService.user.email}}</li>
+            <li *ngIf="authService.user">
+              <a (click)="logOut()">Log out</a>
             </li>
           </ul>
         </div>
@@ -19,7 +26,17 @@
 
   <ul isoSidenav class="sidenav" id="mobile-menu">
     <li>
-      <a routerLink="/" class="sidenav-close">Tienda</a>
+      <a routerLink="/store" class="sidenav-close">Tienda</a>
     </li>
+    <li><a routerLink="/store/computers">Computadoras</a></li>
+    <li><a routerLink="/store/accessories">Accesorios</a></li>
+    <li><a routerLink="/store/help">Ayuda</a></li>
+    <li *ngIf="!authService.user">
+        <a routerLink="login" routerLinkActive="active">Iniciar Sesion/Registrarse</a>
+      </li>
+      <li *ngIf="authService.user">WELCOME {{authService.user.email}}</li>
+      <li *ngIf="authService.user">
+        <a (click)="logOut()">Log out</a>
+      </li>
   </ul>
 </header>

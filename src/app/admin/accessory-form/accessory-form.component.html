@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+      <h5 class="black-text col s6 offset-s4">Anadir Accessorio</h5>
+      <form  [formGroup]="accessoryForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4" novalidate>
+          <div class="row">
+              <div class="input-field col s12">
+                  <input id="brand" name="brand" class="form-control" formControlName="brand" [(ngModel)]="brand" type="text" required>
+                  <label for="brand">Marca</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['brand'].invalid && (accessoryForm.controls['brand'].dirty || accessoryForm.controls['brand'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['brand'].errors.required">
+                  Marca es Requerido
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="model" class="form-control" formControlName="model" [(ngModel)]="model" type="text" required>
+                  <label for="model">Modelo</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['model'].invalid && (accessoryForm.controls['model'].dirty || accessoryForm.controls['model'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['model'].errors.required">
+                  Modelo es requerido.
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="color" class="form-control" formControlName="color" [(ngModel)]="color" type="text" required>
+                  <label for="color">Color</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['color'].invalid && (accessoryForm.controls['color'].dirty || accessoryForm.controls['color'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['color'].errors.required">
+                  Color es requerido.
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="image" class="form-control" formControlName="image" [(ngModel)]="image" type="text" required>
+                  <label for="image">Ruta Imagen (assets/name_image.jpg)</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['image'].invalid && (accessoryForm.controls['image'].dirty || accessoryForm.controls['image'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['image'].errors.required">
+                  Ruta imagen es requerido.
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="productWeight" class="form-control" formControlName="productWeight" [(ngModel)]="productWeight" type="number" required>
+                  <label for="screenSize">Peso (En libras)</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['productWeight'].invalid && (accessoryForm.controls['productWeight'].dirty || accessoryForm.controls['productWeight'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['productWeight'].errors.required">
+                  Peso es requerido.
+                  </div>
+                  <div *ngIf="accessoryForm.controls['productWeight'].errors.maxlength">
+                  Peso es numerico con dos decimales maximo.
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="wireless" class="form-control" formControlName="wireless" [(ngModel)]="wireless" type="text" required>
+                  <label for="wireless">Wireless? Si/No</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['wireless'].invalid && (accessoryForm.controls['wireless'].dirty || accessoryForm.controls['wireless'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['wireless'].errors.required">
+                  Wireless es requerido.
+                  </div>
+                  <div *ngIf="accessoryForm.controls['wireless'].errors.maxlength">
+                  wireless: Si o No
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="price" class="form-control" formControlName="price" [(ngModel)]="price" type="number" required>
+                  <label for="price">Precio</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['price'].invalid && (accessoryForm.controls['price'].dirty || accessoryForm.controls['price'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['price'].errors.required">
+                  Precio es requerido.
+                  </div>
+                  <div *ngIf="accessoryForm.controls['price'].errors.maxlength">
+                  Precio es numerico maximo 4 digitos y 2 decimales.
+                  </div>
+              </div>
+              <div class="input-field col s12 form-group">
+                  <input name="stock" class="form-control" formControlName="stock" [(ngModel)]="stock" type="number" required>
+                  <label for="stock">Cantidad Unidades Disponibles</label>
+              </div>
+              <div
+                  *ngIf="accessoryForm.controls['stock'].invalid && (accessoryForm.controls['stock'].dirty || accessoryForm.controls['stock'].touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="accessoryForm.controls['stock'].errors.required">
+                  Cantidad Disponible requerida.
+                  </div>
+                  <div *ngIf="accessoryForm.controls['stock'].errors.maxlength">
+                  Cantidad Disponible maximo 2 digitos.
+                  </div>
+              </div>
+          </div>
+          <div class="column">
+          <div class="col s4">
+              <button type="button" class="waves-effect waves-light btn right red lighten-1" 
+              [disabled]="accessoryForm.pristine || accessoryForm.invalid" (click)="addAccessory()">Guardar Accesorio</button>
+          </div>
+          <div class="col s8">
+            <button type="button" class="waves-effect waves-light btn right red lighten-1" routerLink="/admin"> Atras</button>
+          </div>
+          </div>
+      </form>
+  </div>
+
+</div>
