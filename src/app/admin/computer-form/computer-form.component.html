@@ -1,6 +1,7 @@
+<iso-admin></iso-admin>
 <div class="container">
     <div class="row">
-        <h5 class="black-text col s6 offset-s4">Anadir y Editar Computadora</h5>
+        <h5 class="black-text col s6 offset-s4">Anadir Computadora</h5>
         <form  [formGroup]="computerForm" class="col s10 offset-s1 m6 offset-m3 l4 offset-l4" novalidate>
             <div class="row">
                 <div class="input-field col s12">
@@ -15,7 +16,7 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="model" class="form-control" formControlName="model" [(ngModel)]="model" type="model" required>
+                    <input name="model" class="form-control" formControlName="model" [(ngModel)]="model" type="text" required>
                     <label for="model">Modelo</label>
                 </div>
                 <div
@@ -26,7 +27,7 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="processor" class="form-control" formControlName="processor" [(ngModel)]="processor" type="processor" required>
+                    <input name="processor" class="form-control" formControlName="processor" [(ngModel)]="processor" type="text" required>
                     <label for="processor">Procesador</label>
                 </div>
                 <div
@@ -48,8 +49,8 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="ram" class="form-control" formControlName="ram" [(ngModel)]="ram" type="text" placeholder="# GB" required>
-                    <label for="ram">Memoria RAM</label>
+                    <input name="ram" class="form-control" formControlName="ram" [(ngModel)]="ram" type="text"required>
+                    <label for="ram">Memoria RAM - GB</label>
                 </div>
                 <div
                     *ngIf="computerForm.controls['ram'].invalid && (computerForm.controls['ram'].dirty || computerForm.controls['ram'].touched)"
@@ -76,8 +77,8 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="image" class="form-control" formControlName="image" [(ngModel)]="image" type="text" placeholder="assets/name_image.jpg" required>
-                    <label for="image">Ruta Imagen</label>
+                    <input name="image" class="form-control" formControlName="image" [(ngModel)]="image" type="text" required>
+                    <label for="image">Ruta Imagen (assets/name_image.jpg)</label>
                 </div>
                 <div
                     *ngIf="computerForm.controls['image'].invalid && (computerForm.controls['image'].dirty || computerForm.controls['image'].touched)"
@@ -123,8 +124,8 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="touchScreen" class="form-control" formControlName="touchScreen" [(ngModel)]="touchScreen" type="text" placeholder="Si/No" required>
-                    <label for="touchScreen">Pantalla Tactil?</label>
+                    <input name="touchScreen" class="form-control" formControlName="touchScreen" [(ngModel)]="touchScreen" type="text" required>
+                    <label for="touchScreen">Pantalla Tactil?(Si/No)</label>
                 </div>
                 <div
                     *ngIf="computerForm.controls['touchScreen'].invalid && (computerForm.controls['touchScreen'].dirty || computerForm.controls['touchScreen'].touched)"
@@ -137,8 +138,8 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="weight" class="form-control" formControlName="weight" [(ngModel)]="weight" type="number" placeholder="En libras" required>
-                    <label for="screenSize">Peso</label>
+                    <input name="weight" class="form-control" formControlName="weight" [(ngModel)]="weight" type="number" required>
+                    <label for="screenSize">Peso (En libras)</label>
                 </div>
                 <div
                     *ngIf="computerForm.controls['weight'].invalid && (computerForm.controls['weight'].dirty || computerForm.controls['weight'].touched)"
@@ -151,8 +152,8 @@
                     </div>
                 </div>
                 <div class="input-field col s12 form-group">
-                    <input name="bluetooth" class="form-control" formControlName="bluetooth" [(ngModel)]="bluetooth" type="text" placeholder="Si/No" required>
-                    <label for="bluetooth">Bluetooth?</label>
+                    <input name="bluetooth" class="form-control" formControlName="bluetooth" [(ngModel)]="bluetooth" type="text" required>
+                    <label for="bluetooth">Bluetooth? (Si/No)</label>
                 </div>
                 <div
                     *ngIf="computerForm.controls['bluetooth'].invalid && (computerForm.controls['bluetooth'].dirty || computerForm.controls['bluetooth'].touched)"
@@ -236,9 +237,12 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col s12">
+            <div class="col s5">
                 <button type="button" class="waves-effect waves-light btn right red lighten-1" 
                 [disabled]="computerForm.pristine || computerForm.invalid" (click)="addComputer()">Guardar Computadora</button>
+            </div>
+            <div class="s9">
+                <button type="button" class="waves-effect waves-light btn right red lighten-1" routerLink="/admin">Atras</button>
             </div>
             </div>
         </form>

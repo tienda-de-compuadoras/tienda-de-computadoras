@@ -15,6 +15,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from './store/store.module';
+import { RegisterModule } from './register/register.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,9 @@ import { StoreModule } from './store/store.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    RegisterModule,
+    LoginModule
   ],
   providers: [AuthService, AngularFireAuth, AuthGuardService,, UserService, ComputersService, AccessoriesService, UserService],
   bootstrap: [AppComponent]

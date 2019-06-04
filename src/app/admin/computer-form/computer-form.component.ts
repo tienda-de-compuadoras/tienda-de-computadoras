@@ -50,7 +50,7 @@ export class ComputerFormComponent implements OnInit {
       bluetooth: ['', [Validators.required, Validators.maxLength(2)]],
       headphoneJack: ['',[Validators.required, Validators.maxLength(2)]],
       portsTypeA: ['', [Validators.required, Validators.number, Validators.maxLength(1)]],
-      portsTypeC: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      portsTypeC: ['', [Validators.required, Validators.number]],
       price: ['', [Validators.required, Validators.number, Validators.maxLength(7)]],
       stock: ['', [Validators.required, Validators.number, Validators.maxLength(2)]]
     });
