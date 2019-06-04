@@ -15,6 +15,7 @@ import { AccessoryFormComponent } from './accessory-form/accessory-form.componen
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [AdminComputersComponent, AdminAccesoriesComponent, ComputerFormComponent, AccessoryFormComponent]
 })
 export class AdminModule { }

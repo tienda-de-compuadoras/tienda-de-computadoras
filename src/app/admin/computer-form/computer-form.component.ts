@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./computer-form.component.css']
 })
 export class ComputerFormComponent implements OnInit {
+  computerForm: FormGroup;
   brand: string;
   model: string;  
   processor: string;
@@ -27,7 +28,7 @@ export class ComputerFormComponent implements OnInit {
   portsTypeC: number;
   price: number;
   stock: number;
-  computerForm: FormGroup;
+
   constructor(private fb: FormBuilder, private computersService: ComputersService) { }
 
   ngOnInit() {
